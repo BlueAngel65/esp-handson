@@ -68,7 +68,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 }
 
 void setup() {
-  Serial.begin(115200); 
+  Serial.begin(9600); 
   Wire.begin(); 
  
   BME280_setup();
