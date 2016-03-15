@@ -13,8 +13,8 @@
 const char *mqtt_client_id = "esp8266" __DATE__ __TIME__;
 
 // Wi-Fi APのSSID/Password
-const char *ssid = "SSID";
-const char *password = "pw";
+const char *ssid = "xxxxxxxxxx";
+const char *password = "xxxxxxxx";
 // Server環境に関する設定
 const char *server = "xxx.xxx.xxx.xxx";
 const char *topic = "sensor/esp10";
