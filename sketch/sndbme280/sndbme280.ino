@@ -1,6 +1,7 @@
 /*
- *   BME280(Switch Science) test program for ESP-WROOM-02 
+ *   BME280 test program for ESPr Developer 
  *                              v1.0 2016/03/01
+ *                              v1.1 2016/09/11
  *                              revised by T.Ariyama
  */
 #include <Wire.h> 
@@ -17,7 +18,8 @@ const char *ssid = "xxxxxxxxxx";
 const char *password = "xxxxxxxx";
 // Server環境に関する設定
 const char *server = "xxx.xxx.xxx.xxx";
-const char *topic = "sensor/esp10";
+const char *topic = "sensor/data";
+const char *nodeid = "espxxxxx";
 
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
@@ -119,12 +121,12 @@ void loop() {
     // set payload(JSON format)
     StaticJsonBuffer<200> jsonBuffer;
     JsonObject& root = jsonBuffer.createObject();
-    root["node_id"] = "esp10";
+    root["node_id"] = nodeid;
     JsonObject& payload = root.createNestedObject("Sensor");
 
     payload["Temperature"] = temp_act;
-    payload["Humidity"] = press_act;
-    payload["Pressure"] = hum_act;
+    payload["Humidity"] = hum_act;
+    payload["Pressure"] = press_act;
 
     root.prettyPrintTo(Serial);
     Serial.println();
